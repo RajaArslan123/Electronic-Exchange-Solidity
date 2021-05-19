@@ -1,0 +1,58 @@
+pragma solidity >=0.5.0 <0.9.0;
+ 
+contract OrderBook{
+    
+    //Task 1 : //Create a function to store a single buy and sell orders in smart contract
+
+    
+    //Storing Book-Names and Book-Prices
+    string[10]  ProductName = ['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7', 'A8', 'A9', 'A10'];
+    int [10] ProductPrice = [12, 13, 14, 16, 9, 14, 19, 10,11, 13];
+    
+    int price;
+    string item;
+    
+    //Storing Single Buy Item
+   function  selectOrder(string memory _item, int _price) public{
+         
+         item = _item;
+         price = _price;
+     }
+     
+     //Displaying of Selected Buy Item
+      function  OderSelected() public view returns(string memory, int){
+         
+         return (item, price);
+     }
+  
+  //Enter Index value for getting detail of Selleing Products
+   function SellingProducts(uint i)  public view returns(string memory, int){
+       
+               if(i< 10){
+               
+               return ( ProductName[i], ProductPrice[i]);
+               }
+           
+       }
+       
+   }
+ 
+//Task 2 : //Create a function to buy and sell orders. if two prices match each other and the side does not match,
+             //the system should delete this transaction from the smart contract.
+
+// 1. In Smart Contract transaction can't be deleted
+// 2. No delete command in solidity language
+// 3. For edit, we have to update all blocks from chain of blocks.
+// 4. It will be necessary to update all nodes and their blocks, which in not possible in public blockchain.
+
+
+//Task 3 : //Write Unit Test Cases to test your logic
+
+//1. Truffle Smart-Contracts test framework
+//2. Remix unit testing plugin
+//3. OpenZeppelin test environment
+
+//Note: I used remix unit testing plugin
+
+
+
